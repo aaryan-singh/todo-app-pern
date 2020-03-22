@@ -25,7 +25,6 @@ const ListTodos = () => {
         <thead>
           <tr>
             <th scope="col">Description</th>
-            <th scope="col">Edit</th>
             <th scope="col">Delete</th>
           </tr>
         </thead>
@@ -33,9 +32,6 @@ const ListTodos = () => {
           {todos.map(todo => (
             <tr key={todo.todo_id}>
               <td>{todo.description}</td>
-              <td>
-                <button className="btn btn-primary">Edit</button>
-              </td>
               <td>
                 <button
                   className="btn btn-danger"

@@ -26,7 +26,7 @@ app.post("/todos", async (req, res) => {
 });
 
 // get all todos
-app.get("/", async (req, res) => {
+app.get("/todos", async (req, res) => {
   try {
     const allTodos = await pool.query("SELECT * FROM todo");
     res.json(allTodos.rows);
@@ -71,11 +71,10 @@ app.delete("/todos/:id", async (req, res) => {
       id
     ]);
     res.json("Todo was deleted");
+    console.log(deleteTodo);
   } catch (err) {
     console.error(err.message);
   }
 });
-
-app.get("/", (req, res) => res.send("hi from pern!"));
 
 app.listen(port, console.log(`Server listening on ${port}`));
