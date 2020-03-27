@@ -3,7 +3,7 @@ const cors = require("cors");
 const pool = require("./db");
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 process.env.PWD = process.cwd();
 
