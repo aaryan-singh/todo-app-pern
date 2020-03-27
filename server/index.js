@@ -5,11 +5,17 @@ const pool = require("./db");
 const app = express();
 const port = 5000;
 
+process.env.PWD = process.cwd();
+
 // middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(process.env.PWD, "build")));
 
 // routes
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(process.env.PWD, "build", "index.html"));
+});
 
 // create a todo
 app.post("/todos", async (req, res) => {
